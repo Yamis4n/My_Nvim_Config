@@ -35,6 +35,11 @@ lazy.setup({
 
   {'nvim-treesitter/nvim-treesitter'}, -- colors to my text
 
+  { 
+    'stevearc/dressing.nvim',
+    opts = {},
+  },
+
   {'nvim-lualine/lualine.nvim'},
 
   {'kyazdani42/nvim-web-devicons'},  -- icons for nvim tree
