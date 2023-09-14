@@ -2,24 +2,28 @@ COLORS = {"catppuccin-latte", "catppuccin-frappe", "catppuccin-macchiato", "catp
 
 local lualine = require("lualine")
 
-function ChooseTheme(theme)
+function ChooseTheme()
 
-  theme = theme or "dark"
-  theme = string.lower(theme)
+    local theme  = "dark"
+    vim.ui.select({"dark-default", "light-default", "catppuccin-latte", nil}, {prompt = "Select: "}, function (item, idx) theme = item end)
+--  theme = theme or "dark"
+ -- theme = string.lower(theme)
 
-  if (theme == "dark") then
+ print(theme)
+  if (theme == "dark-default") then
     vim.o.background = "dark"
     vim.cmd.colorscheme("dracula")
-    lualine.setup({options={theme = "dracula"}})
-  elseif (theme == "light") then
+    lualine.setup({options={theme = "auto"}})
+  elseif (theme == "light-default") then
     vim.o.background = "light"
     vim.cmd.colorscheme("gruvbox")
-    lualine.setup({options={theme = "gruvbox_light"}})
+    lualine.setup({options={theme = "auto"}})
   
   else
-    print("Please choose one of this themes:")
-    print("   - Light")
-    print("   - Dark")
+    vim.o.background = "light"
+    vim.cmd.colorscheme("catppuccin-latte")
+    lualine.setup({options={theme = "auto"}})
+  
   end
 end
 
