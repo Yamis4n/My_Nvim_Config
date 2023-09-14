@@ -1,43 +1,41 @@
-COLORS = {"catppuccin-latte", "catppuccin-frappe", "catppuccin-macchiato", "catppuccin-mocha", "tokyonight", "gruvbox", "dracula"}
 
 local lualine = require("lualine")
 
 function ChooseTheme()
 
     local theme  = "dark"
-    vim.ui.select({"dark-default", "light-default", "catppuccin-latte", nil}, {prompt = "Select: "}, function (item, idx) theme = item end)
---  theme = theme or "dark"
- -- theme = string.lower(theme)
+    vim.ui.select({"dracula (dark)", "catppuccin-mocha (dark)", "tokyonight (dark)", "gruvbox (dark)",
+                   "gruvbox (light)", "catppuccin-latte (light)", nil}, {prompt = "Select: "}, function (item, idx) theme = item end)
 
- print(theme)
-  if (theme == "dark-default") then
+  if (theme == "dracula (dark)") then
     vim.o.background = "dark"
     vim.cmd.colorscheme("dracula")
-    lualine.setup({options={theme = "auto"}})
-  elseif (theme == "light-default") then
-    vim.o.background = "light"
-    vim.cmd.colorscheme("gruvbox")
+    lualine.setup({options={theme = "dracula"}})
+
+  elseif (theme == "catppuccin-mocha (dark)") then
+    vim.o.background = "dark"
+    vim.cmd.colorscheme("catppuccin-mocha")
     lualine.setup({options={theme = "auto"}})
   
-  else
+  elseif (theme == "tokyonight (dark)") then
+    vim.o.background = "dark"
+    vim.cmd.colorscheme("tokyonight")
+    lualine.setup({options={theme = "auto"}})
+  
+  elseif (theme == "gruvbox (dark)") then
+    vim.o.background = "dark"
+    vim.cmd.colorscheme("gruvbox")
+    lualine.setup({options={theme = "gruvbox-dark"}})
+
+  elseif (theme == "gruvbox (light)") then
+    vim.o.background = "light"
+    vim.cmd.colorscheme("gruvbox")
+    lualine.setup({options={theme = "gruvbox-light"}})
+
+  elseif (theme == "catppuccin-latte (light)") then
     vim.o.background = "light"
     vim.cmd.colorscheme("catppuccin-latte")
     lualine.setup({options={theme = "auto"}})
-  
+
   end
 end
-
-
-
-function Colorize(color)
-  color = color or 4
-  vim.cmd.colorscheme(COLORS[color])
-end
-
-function ShowColors()
-  for color = 1, #COLORS, 1 do
-    print(color,"-", COLORS[color])
-  end
-end
-
-ChooseTheme()
