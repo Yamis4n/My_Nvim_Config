@@ -27,12 +27,12 @@ function SelectingTheme(theme)
   elseif (theme == THEMES[4]) then
     vim.o.background = "dark"
     vim.cmd.colorscheme("gruvbox")
-    lualine.setup({options={theme = "auto"}})
+    lualine.setup({options={theme = "gruvbox"}})
 
   elseif (theme == THEMES[5]) then
     vim.o.background = "light"
     vim.cmd.colorscheme("gruvbox")
-    lualine.setup({options={theme = "auto"}})
+    lualine.setup({options={theme = "gruvbox"}})
 
   elseif (theme == THEMES[6]) then
     vim.o.background = "light"
@@ -47,3 +47,10 @@ function SelectingTheme(theme)
 
   end
 end
+
+
+SelectingTheme(THEMES[5])
+
+
+
+

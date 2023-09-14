@@ -45,6 +45,14 @@ lazy.setup({
   {'kyazdani42/nvim-web-devicons'},  -- icons for nvim tree
   {'kyazdani42/nvim-tree.lua'}, -- File explorer
 
+  {
+      "startup-nvim/startup.nvim",
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim"
+      }
+  },
+
   { -- Telescope
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     dependencies = {'nvim-lua/plenary.nvim'}
