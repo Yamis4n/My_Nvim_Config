@@ -27,7 +27,7 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  
+
   {"folke/tokyonight.nvim"},   -- Colorschemes
   {"catppuccin/nvim"},
   {"ellisonleao/gruvbox.nvim"},
@@ -35,44 +35,43 @@ lazy.setup({
 
   {'nvim-treesitter/nvim-treesitter'}, -- colors to my text
 
-  { 
+  {
     'stevearc/dressing.nvim',
     opts = {},
   },
 
   {'nvim-lualine/lualine.nvim'},
 
-  {'kyazdani42/nvim-web-devicons'},  -- icons for nvim tree
+  --  {'kyazdani42/nvim-web-devicons'},  -- icons for nvim tree
   {'kyazdani42/nvim-tree.lua'}, -- File explorer
 
   {
-      "startup-nvim/startup.nvim",
-      dependencies = {
-        "nvim-telescope/telescope.nvim",
-        "nvim-lua/plenary.nvim"
-      }
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
 
   { -- Telescope
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    dependencies = {'nvim-lua/plenary.nvim'}
-  },
-  {'m4xshen/autoclose.nvim'}, -- autoclose {[("''")]}
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    banch = "v2.x",
-    dependencies = {
-      -- Lsp Support
-      {"neovim/nvim-lspconfig"},
-      {"williamboman/mason.nvim"},
-      {"williamboman/mason-lspconfig.nvim"},
+  'nvim-telescope/telescope.nvim', tag = '0.1.2',
+  dependencies = {'nvim-lua/plenary.nvim'}
+},
 
-      -- Autocompletion
-      {"hrsh7th/nvim-cmp"},
-      {"hrsh7th/cmp-nvim-lsp"},
-      {"L3MON4D3/LuaSnip"},
-    }
+{'m4xshen/autoclose.nvim'}, -- autoclose {[("''")]}
+{
+  "VonHeikemen/lsp-zero.nvim",
+  banch = "v2.x",
+  dependencies = {
+    -- Lsp Support
+    {"neovim/nvim-lspconfig"},
+    {"williamboman/mason.nvim"},
+    {"williamboman/mason-lspconfig.nvim"},
+
+    -- Autocompletion
+    {"hrsh7th/nvim-cmp"},
+    {"hrsh7th/cmp-nvim-lsp"},
+    {"L3MON4D3/LuaSnip"},
   }
+}
 })
 
 
